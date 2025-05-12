@@ -1,0 +1,245 @@
+main[id="admin"]{
+    .tabs{
+        width: 100%;
+        display: flex;
+        border-bottom: 1px solid lightslategray;
+        justify-content: space-around;
+        p:hover{
+            background-color: lightgrey;
+        }
+        p{
+            width: 100%;
+            border-bottom: 3px solid transparent;
+            text-align: center;
+            cursor: pointer;
+            padding: 10px;
+        }
+    }
+    /* .student-page,.teacher-page,.department-page{ */
+    .page{
+        display: flex;
+        display: none;
+        flex-direction: column;
+        max-height: calc(100vh - 70px);
+        overflow-y: scroll;
+        margin: 15px 0;
+        details{
+            border: 1px solid rgb(197, 195, 195);
+            margin: 20px;
+            padding: 20px;
+        }
+        summary{
+            display: flex;
+            align-items: center;
+            outline: none;
+            column-gap: 30px;
+            h1{
+                font-weight: 500;
+            }
+            svg{
+                height: 35px;
+                stroke: black;
+                stroke-width: 2px;
+            }
+        }
+        form{
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        select{
+            cursor: pointer;
+        }
+        input,textarea,select{
+            padding: 10px 20px;
+            border-radius: 4px;
+            outline: none;
+            border: 1px solid lightgrey;
+            resize: none;
+        }
+        input[type="file"]:hover{
+            background-color: rgb(226, 226, 226);
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+        input[type="file"]{
+            /* height: max-content; */
+            /* border: none; */
+            align-self: flex-end;
+            justify-self: center;
+            /* border-radius: 50%; */
+            /* width: 50px; */
+            /* height: 50px; */
+            height: 100%;
+            cursor: pointer;
+            border: none;
+            white-space: wrap;
+        }
+        button{
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #fa5252;
+            color: white;
+            cursor: pointer;
+            svg{
+                display: none;
+                width: 25px;
+                margin: 0 auto;
+                stroke: white;
+            }
+        }
+        button:hover{
+            svg{
+                display: block;
+            }span{
+                display: none;
+            }
+        }
+        button:last-child{
+            background-color: #339af0;
+            color: white;
+        }
+        article{
+            height: 100px;
+            overflow-y: scroll;
+        }
+        table{
+             th{
+                padding-right: 40px;
+                font-weight: 500;
+                font-size: 18px;
+             }
+             td{
+                font-weight: 300;
+                font-size: 14px;
+             }
+        }
+        div{
+            grid-column: 1/3;
+            /* border: grey 1px solid; */
+            display: flex;
+            /* padding: 20px; */
+            select{
+                margin-right: 30px;
+                width: 50%;
+                text-align: center;
+            }
+            button:last-child{
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+                background-color: #40c057;
+                border-radius: 2px;
+                padding: 0 25px;
+                width: 50%;
+                margin-left: auto;
+                justify-content: center;
+                svg{
+                    width: 30px;
+                    display: block;
+                    margin: 0;
+                }
+            }
+            h1{
+                font-weight: 500;
+                font-size: 20px;
+            }
+        }
+    }
+    .department-page{
+        summary{
+            button{
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                column-gap: 15px;
+                margin-left: auto;
+                svg{
+                    display: block;
+                    width: 30px;
+                }
+            }
+        }
+        form{
+            h2{
+                font-weight: 500;
+                grid-column: 1/3;
+                font-size: 20px;
+            }
+            aside{
+                grid-column: 1/3;
+                display: grid;
+                grid-template-columns: repeat(auto-fit,minmax(230px ,1fr));
+                gap: 20px;
+            }
+            div{
+                grid-column: unset;
+                border-color: grey;
+                border-radius: 4px;
+                justify-self: center;
+                flex-direction: column;
+                width: 100%;
+                p{
+                    text-align: center;
+                    margin-bottom: 25px;
+                }
+            }
+            textarea{
+                min-height: 150px;
+                width: 100%;
+                height: calc(100% - 64px);
+                resize: vertical;
+            }
+        }
+    }
+    .class-page{
+        form{
+            input[type="text"]{
+                grid-column: 1/3;
+            }
+        }
+    }
+}
+
+.admin.student-show{
+    .student-page{
+        display: flex;
+    }
+    .student-tab{
+        border-color: black;
+    }
+}
+.admin.teacher-show{
+    .teacher-page{
+        display: flex;
+    }
+    .teacher-tab{
+        border-color: black;
+    }
+}
+.admin.department-show{
+    .department-page{
+        display: flex;
+    }
+    .department-tab{
+        border-color: black;
+    }
+}
+.admin.class-show{
+    .class-page{
+        display: flex;
+    }
+    .class-tab{
+        border-color: black;
+    }
+}

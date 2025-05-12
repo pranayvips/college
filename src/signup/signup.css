@@ -1,0 +1,652 @@
+@keyframes choose-box-animation {
+  from {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body:has(#signupPage) {
+  background-color: #392381;
+}
+main[id="signupPage"] {
+  .choose-bg-rect {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    transform: rotate(45deg);
+    height: 350px;
+    width: 350px;
+    /* opacity: 0.2; */
+    path {
+      fill: #907ed9;
+      transition: fill .5s;
+    }
+  }
+  .choose-bg-circle {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    transform: translate(-30%, 30%);
+    height: 1100px;
+    width: 1100px;
+    /* opacity: 0.2; */
+    path {
+      fill: #a1dbec;
+      transition: fill .5s;
+    }
+  }
+
+  #page-back:hover {
+    svg {
+      transform: translateX(-10px);
+    }
+  }
+  #page-back {
+    position: fixed;
+    top: 20px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    display: none;
+    color: lightblue;
+    font-weight: 300;
+    cursor: pointer;
+    align-items: center;
+    column-gap: 5px;
+    opacity: 0.9;
+    left: 20px;
+    svg {
+      width: 25px;
+      stroke: lightblue;
+      transition: transform 0.4s;
+      stroke-width: 1px;
+    }
+  }
+
+  section[id="choose"] {
+    display: flex;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+
+    .choose-box:hover {
+      .circle {
+        transform: scale(1.1);
+        svg {
+          transform: scale(0.9);
+        }
+      }
+      h1 {
+        span {
+          height: 100%;
+        }
+        p {
+          color: white;
+        }
+      }
+    }
+
+    .choose-box {
+      padding: 40px 60px;
+      cursor: pointer;
+      position: relative;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+      animation: choose-box-animation 1s ease-in-out;
+      .inner-shape {
+        position: absolute;
+        bottom: 0;
+      }
+      h1 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        background-color: white;
+        font-size: 18px;
+        color: black;
+        font-weight: 400;
+        padding: 25px;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
+      }
+      h1 span {
+        width: 100%;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        transition: height 0.3s;
+      }
+      h1 p {
+        z-index: 10;
+        position: relative;
+        transition: color 0.3s;
+      }
+    }
+    .circle {
+      padding: 20px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+      position: relative;
+      z-index: 10;
+      svg {
+        height: 50px;
+        stroke: white;
+        transition: inherit;
+      }
+    }
+  }
+
+  section[id="student"] {
+    display: flex;
+    display: none;
+    animation: fadeIn 0.5s linear;
+    backdrop-filter: blur(100px) brightness(120%);
+    width: max-content;
+    height: 80vh;
+    margin: 10vh auto;
+    column-gap: 30px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.08);
+    .left {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      font-family: "Poppins", sans-serif;
+      cursor: default;
+      h1 {
+        font-size: 35px;
+        color: #f8f9fa;
+      }
+      p {
+        font-size: 12px;
+        color: #f8f9fa;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+        margin: 15px 0;
+      }
+      .tabs {
+        margin-top: 20px;
+        display: flex;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.265);
+        user-select: none;
+        h2:hover {
+          color: #ffe3e3;
+        }
+        h2 {
+          transition: color 0.2s;
+          display: flex;
+          align-items: center;
+          position: relative;
+          font-size: 16px;
+          font-weight: 400;
+          cursor: pointer;
+          color: #fff;
+          /* text-shadow: 0 0 5px rgba(0, 0, 0,0.1); */
+          column-gap: 10px;
+          padding-right: 30px;
+          padding-left: 30px;
+          padding-bottom: 10px;
+          margin-bottom: 3px;
+          svg {
+            width: 30px;
+          }
+        }
+        h2::after {
+          content: "";
+          height: 3px;
+          width: 0;
+          background-color: seashell;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          transition: width 0.5s;
+        }
+        .active::after {
+          width: 100%;
+        }
+      }
+      .mail {
+        height: max-content;
+        margin: auto 0;
+            animation: fadeIn .3s linear;
+        align-self: center;
+        width: 100%;
+        padding-top: 30px;
+        /* display: none; */
+        .infoMail {
+          font-weight: 300;
+          font-size: 11px;
+          margin-bottom: 30px;
+          letter-spacing: 0.2px;
+          margin-left: 40px;
+          /* width: 80%; */
+          color: #fff;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.304);
+          max-width: 367px;
+          color: light;
+        }
+        .editMail {
+          display: flex;
+          display: none;
+          margin-bottom: 20px;
+          margin-left: 40px;
+          font-weight: normal;
+          p {
+            font-size: 13px;
+            margin-right: 25px;
+          }
+          p:hover {
+            text-decoration: underline;
+          }
+          span:hover {
+            transform: scale(0.9);
+          }
+          span {
+            cursor: pointer;
+            display: flex;
+            column-gap: 10px;
+            transition: transform 0.3s;
+            align-items: center;
+            color: purple;
+            svg {
+              width: 20px;
+            }
+          }
+        }
+        .input-otp {
+          /* margin-top: 40px; */
+          display: flex;
+          display: none;
+          position: relative;
+          width: max-content;
+          width: 80%;
+          margin-left: 10%;
+          border-bottom: 2px solid black;
+          padding: 10px;
+          font-family: "Poppins", sans-serif;
+          input::placeholder {
+            font-size: 15px;
+          }
+          div {
+            width: 100%;
+            margin-left: 20px;
+            display: flex;
+            justify-content: space-between;
+          }
+          input {
+            font-size: 18px;
+            padding: 5px;
+            width: 40px;
+            background-color: transparent;
+            border: 1px solid darkslategray;
+            border-radius: 4px;
+            text-align: center;
+          }
+          svg {
+            width: 25px;
+            cursor: pointer;
+            stroke: darkslateblue;
+          }
+        }
+        .otp {
+          .editMail {
+            display: flex;
+          }
+          .input-mail {
+            display: none;
+          }
+          .input-otp {
+            display: flex;
+          }
+          .infoMail {
+            display: none;
+          }
+        }
+      }
+      .input {
+        /* margin-top: 40px; */
+        display: flex;
+        position: relative;
+        width: max-content;
+        width: 80%;
+        margin-left: 10%;
+        border-bottom: 2px solid white;
+        padding: 10px;
+        font-family: "Poppins", sans-serif;
+        input::placeholder {
+          font-size: 15px;
+        }
+        input::placeholder {
+          font-weight: 300;
+          font-size: 14px;
+          color: #dfdfdf;
+        }
+        input {
+          font-size: 16px;
+          padding: 5px;
+          color: #fff;
+          width: 100%;
+        }
+        svg {
+          width: 25px;
+          stroke: white;
+        }
+        input,
+        button {
+          outline: none;
+          border: none;
+          background-color: transparent;
+        }
+        button:hover {
+          opacity: 1;
+          svg {
+            stroke: #e03131;
+          }
+        }
+
+        button:hover::after {
+          content: attr(data);
+          background-color: #fff;
+          border: 1px solid darkslategrey;
+          border-radius: 4px;
+          padding: 5px;
+          animation: fadeIn 0.6s linear;
+          font-size: 12px;
+          color: darkslategrey;
+          position: absolute;
+          top: calc(100% + 10px);
+          /* left: 50%; */
+          min-width: 200px;
+          transform: translateX(-100%);
+          /* white-space: nowrap; */
+        }
+        button {
+          position: absolute;
+          left: calc(100% + 30px);
+          top: 50%;
+          transform: translateY(-30%);
+          cursor: pointer;
+          /* opacity: 0.5; */
+          svg {
+            stroke: white;
+            transition: stroke 0.4s;
+          }
+        }
+      }
+
+      .enrollment {
+            animation: fadeIn .3s linear;
+        height: max-content;
+        margin: auto 0;
+        align-self: center;
+        width: 100%;
+        display: none;
+        padding-top: 30px;
+        .input {
+          margin-bottom: 30px;
+          input {
+            letter-spacing: 1px;
+          }
+        }
+      }
+
+      .next:hover {
+        background-color: #7950f2;
+        svg {
+          transform: translateX(10px);
+        }
+      }
+      .next {
+        margin-top: auto;
+        background-color: cyan;
+        border: none;
+        font-size: 18px;
+        user-select: none;
+        display: flex;
+        transition: background-color 0.5s;
+        column-gap: 10px;
+        padding: 15px 40px;
+        border-radius: 8px;
+        width: max-content;
+        color: black;
+        margin-bottom: 25px;
+        min-width: 90%;
+        font-family: "Poppins", sans-serif;
+        margin-left: 5%;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        svg {
+          stroke: black;
+          width: 30px;
+          transition: transform 0.4s;
+        }
+      }
+    }
+    .right {
+      background-color: #925fe2;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      img {
+        position: relative;
+        max-width: 40vw;
+        max-height: 50vh;
+      }
+      svg {
+        position: absolute;
+      }
+      h1 {
+        font-size: 50px;
+        font-weight: 300;
+        color: #eee;
+        cursor: default;
+        position: relative;
+        font-family: "Poppins";
+        line-height: 45px;
+        margin-bottom: 30px;
+        strong {
+          font-weight: bold;
+          font-size: 55px;
+        }
+      }
+    }
+  }
+
+  section[id="teacher"]{
+    /* backdrop-filter: blur(20px) brightness(120%) opacity(0); */
+    width: 70vw;
+    display: none;
+    animation: fadeIn .3s;
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.08);
+    height: 80vh;
+    margin-left: 15vw;
+    margin-top: 10vh;
+    border-radius: 8px;
+    overflow: hidden;
+    .left{
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(30px) brightness(110%);
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        height: 100%;
+        h1{
+            color: white;
+            font-size: 35px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        h2{
+            font-size: 18px;
+            color: white;
+            font-weight: 400;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .top{
+            position: relative;
+            svg{
+                position: absolute;
+                top: 0;
+                left: 30px;
+            }
+            img{
+                position: absolute;
+                top: 70px;
+                left: 110px;
+                width: 150px;
+            }
+        }
+        .bottom{
+            margin-top: auto;
+            transform: translateY(10px);
+            svg{
+                width: 400px;
+            }
+        }
+    }
+    .right{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 5%;
+        h1,h2{
+            color: white;
+        }
+        h1{
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+        h2{
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+        label{
+            font-weight: 300;
+            color: white;
+            font-size: 16px;
+            display: none;
+            margin-bottom: 5px;
+        }
+        .input{
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            padding: 10px 30px;
+            padding-left: 0;
+            border-bottom: 2px solid white;
+            width: 70%;
+            margin-bottom: 30px;
+            svg{
+                height: 30px;
+                stroke: white;
+            }
+        }
+        input::placeholder{
+            color: #eee;
+            font-weight: 300;
+        }
+        input{
+            background-color: transparent;
+            /* background-color: rgba(224, 255, 255, 0.052); */
+            border: none;
+            /* border: 1px solid lightslategray; */
+            outline: none;
+            color: white;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 4px;
+        }
+        p:hover{
+            color: #f76707;
+        }
+        p{
+            font-size: 12px;
+            font-weight: 300;
+            width: max-content;
+            color: lightcyan;
+            margin-top: 20px;
+            transition: color .4s;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: cyan;
+        }
+        button{
+            border: none;
+            outline: none;
+            transition: background-color .4s;
+            background-color: #a1dbec;
+            padding: 10px;
+            color: #392381;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: auto;
+        }
+    }
+  }
+}
+
+.signupPage.choose-signup {
+  section[id="choose"] {
+    display: flex;
+  }
+}
+.signupPage.student-signup {
+  .choose-bg-rect path {
+      fill: #a1dbec;
+  }
+  .choose-bg-circle path {
+      fill: #c2255c;
+  }
+  #page-back {
+    display: flex;
+  }
+  section[id="student"] {
+    display: flex;
+  }
+}
+.signupPage.teacher-signup {
+  .choose-bg-rect path {
+      fill: #e67700;
+  }
+  .choose-bg-circle path {
+      fill: #22b8cf;
+  }
+  #page-back {
+    display: flex;
+  }
+  section[id="teacher"] {
+    display: flex;
+  }
+}

@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "Druk-Wide";
+  src: url("/DrukWideWebBold.ttf") format("truetype");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  transition: background-color 0.4s;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+@keyframes fadeIn {
+  from{opacity: 0;}
+  to{opacity: 1;}
+}
+@keyframes splash-fill-up {
+  from {
+    height: 0;
+    y: 100%;
+  }
+  to {
+    height: 100%;
+    y: -20;
+  }
+}
+/* for the splash screen */
+main[class="splash"] {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  p {
+    position: absolute;
+    bottom: 10%;
+    font-size: 25px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    background: linear-gradient(to right, #4992e6, #c36780);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: .5;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    max-height: max(10vh, 10vw);
+    overflow-y: scroll;
+    pointer-events: none;
+  }
+  div::-webkit-scrollbar {
+    width: 0;
+  }
+  img {
+    height: 200px;
+    padding: 30px;
+  }
+  h1 {
+    font-size: max(10vh, 10vw);
+    letter-spacing: 10px;
+    transition: transform 0.3s;
+  }
+  .back-text {
+    fill: transparent;
+  }
+  .fill-rect {
+    height: 0;
+    animation: splash-fill-up 1s linear forwards 2s;
+  }
+  svg {
+    min-width: 50vw;
+    min-height: 200px;
+    transition: transform .3s,opacity .3s;
+  }
+  svg text,
+  svg text tspan {
+    font-size: max(10vh, 10vw);
+    font-family: "Druk-Wide";
+    stroke: #222;
+    stroke-width: 4;
+    stroke-dasharray: 870;
+    stroke-dashoffset: 870;
+    /* animation: splash-text-draw 1s linear forwards; */
+  }
+}
