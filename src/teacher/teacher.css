@@ -600,6 +600,42 @@
         filter: blur(10px);
         pointer-events: none;
     }
+    .calender{
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 10%;
+        justify-content: space-evenly;
+        button:hover{
+            transform: scale(1.1);
+        }
+        button{
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            background-color: #036AFF;
+            color: white;
+            width: 18vw;
+            padding: 25px;
+            border-radius: 20px;
+            transition: transform .2s;
+            gap: 15px;
+            svg{
+                stroke: white;
+                width: 120px;
+            }
+        }
+        button:first-child{
+            background-color: #2f9e44;
+        }
+        button:last-child{
+            background-color: #f03e3e;
+        }
+    }
     .mark{
         width: 100%;
         height: 100%;
@@ -626,12 +662,16 @@
                 stroke: var(--text-color);
             }
         }
+        span:hover{
+            transform: scale(1.1);
+        }
         span{
             background-color: #036AFF;
             border: none;
             border-radius: 4px;
             margin-top: 20px;
             padding: 20px 40px;
+            transition: transform .2s;
             font-weight: bold;
             color: white;
             letter-spacing: 1px;
@@ -1757,6 +1797,13 @@
         }
     }
     @media (max-width:600px) {
+        .teacher header{
+            .icon{
+                img:nth-child(2){
+                    display: none !important;
+                }
+            }
+        }
         .teacher main[class="classes"]{
             .notes{
                 details{
@@ -2025,6 +2072,18 @@
                     }
                 }
             }
+        }
+    }
+    .teacher main[class="inout"]{
+        margin: 0 15px;
+        .calender{
+            flex-direction: column;
+            button{
+                width: 80vw;
+            }
+        }
+        .show{
+            width: 90%;
         }
     }
     .teacher main[class="classes"]{

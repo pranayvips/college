@@ -123,7 +123,7 @@ function InOut() {
   return (
     <main className="inout">
       <div className="calender">
-        <div className="top">
+        {/* <div className="top">
           <select id="">
             <option value="jan">May</option>
           </select>
@@ -145,8 +145,8 @@ function InOut() {
             </svg>
             Today
           </button>
-        </div>
-        {Array.from({ length: 31 }).map((value, index) => {
+        </div> */}
+        {/* {Array.from({ length: 31 }).map((value, index) => {
           return index <= today ? (
             <MakeBlock
               date={index}
@@ -157,7 +157,21 @@ function InOut() {
           ) : (
             <MakeEmpty date={index} />
           );
-        })}
+        })} */}
+        <button onClick={()=>{
+          document.querySelector(".teacher .inout .calender").classList.add("calender1")
+        document.querySelector(".teacher .inout .upload").style.display = "flex"
+        }}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+</svg>
+<span>Check In</span></button>
+        <button onClick={()=>{
+          document.querySelector(".teacher .inout .calender").classList.add("calender1")
+        document.querySelector(".teacher .inout .upload").style.display = "flex"
+        }}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9" />
+</svg>
+<span>Check Out</span></button>
       </div>
       <div className="upload mark">
         <p onClick={()=>{
